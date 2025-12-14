@@ -55,17 +55,7 @@ ESP32-S3 Camera
 
 All models share the same downstream pipeline, ensuring fair and reproducible benchmarking.
 
-4. Supported Lane Segmentation Models
-| Model       | Architecture Type            | Characteristics                |
-| ----------- | ---------------------------- | ------------------------------ |
-| YOLOv8-Seg  | Detection-based segmentation | Fast inference, higher latency |
-| PIDNet      | Real-time segmentation       | Strong boundary accuracy       |
-| TwinLiteNet | Lightweight segmentation     | Low computation, stable masks  |
-| BiSeNetV2   | Bilateral segmentation       | Best speed–accuracy balance    |
-
-Model switching is handled purely via configuration.
-
-5. Project Structure
+4. Project Structure
 
 AI/
 ├─ LaneDetection/
