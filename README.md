@@ -120,17 +120,37 @@ The dataset used for training and evaluation is not included in this repository.
 
 ## 9. Pretrained Model Weights
 
-Pretrained weights for each supported model are provided separately. You must download and place them in the correct directory.
+Due to GitHub's file size limits (LFS), the pretrained model weights (files > 100MB) are **not included** in this repository. You must download them manually from Google Drive and place them into the `Lane_weight` folder.
 
-*  **Weights Download:** [Google Drive Link](https://drive.google.com/drive/u/0/folders/1Xdl3OQaeNlNbwnEjTJZj4xluvQplL2np)
+###  Download Link
+* **Google Drive:** [🔗 CLICK HERE TO DOWNLOAD WEIGHTS](https://drive.google.com/drive/u/0/folders/1Xdl3OQaeNlNbwnEjTJZj4xluvQplL2np)
 
-**Expected Directory Structure:**
+### 📂 Installation Steps
+1. Download the weight files (or the `.zip` archive) from the link above.
+2. Navigate to the folder: `AI/LaneDetection/Lane_weight/`.
+3. Extract or copy the weight files so they match the structure below.
+
+** Correct Directory Structure:**
+Ensure your `LaneDetection` folder looks exactly like this:
+
 ```text
-AI/LaneDetection/Lane_weight/
-├── Yolo_v8/best.pt
-├── PIDNet/best.pt
-├── TwinLite/best.pth
-└── BiseNet/best.pth
+AI/
+└── LaneDetection/
+    ├── backends/                # Existing folder
+    ├── Lane_weight/             # 📂 PUT DOWNLOADED WEIGHTS HERE
+    │   ├── Yolo_v8/
+    │   │   └── best.pt
+    │   ├── PIDNet/
+    │   │   └── best.pt
+    │   ├── TwinLite/
+    │   │   └── best.pth
+    │   └── BiseNet/
+    │       └── best.pth
+    ├── common.py
+    ├── lane_controller.py
+    ├── lane_geometry.py
+    ├── lane_overlay.py
+    └── lane_pipeline.py
 ```
 ## 10. Running the System
 
