@@ -30,7 +30,22 @@ The project is developed as a graduation thesis, with emphasis on:
 
 **Note:** This is a real deployment system, not a simulation.
 
-## 2. Main Contributions
+## 2. Project Inheritance
+
+This project is built upon the **AutoCar-Kit** hardware platform and the initial system foundation developed by a previous graduation project at FPT University. We respectfully acknowledge the original authors for their open-source contribution, which served as a robust base for this research.
+
+* **Original Project:** ACE_v2.3 (AutoCar-Kit)
+* **Original Repository:** [🔗 GitHub - nohope-n3/ACE_v2.3](https://github.com/nohope-n3/ACE_v2.3.git)
+
+While inheriting the **robust chassis design and motor control logic** from the original platform, the current team has **leveraged** this hardware as a testbed to **study and apply** advanced AI algorithms in a real-world setting. 
+
+Our work focuses on **bridging the gap** between Deep Learning and Embedded Systems by:
+
+* **Deploying** a high-throughput UDP pipeline to facilitate real-time AI inference.
+* **Integrating** state-of-the-art segmentation models (PIDNet, BiSeNet, Yolov8, TwinliteNet) directly into the control loop.
+* **Experimenting** with a **Multi-Ratio Lane Center Estimation** algorithm in Bird's-Eye View (BEV) to handle complex curve geometries.
+
+## 3. Main Contributions
 
 * **Modular Pipeline:** Model-agnostic lane-keeping architecture.
 * **Robust Streaming:** UDP JPEG frame reassembly algorithm for ESP32.
@@ -39,7 +54,7 @@ The project is developed as a graduation thesis, with emphasis on:
 * **Stable Control:** EMA-based (Exponential Moving Average) stabilization for robust steering.
 * **Analysis Tools:** Real-time visualization and CSV benchmark logging.
 
-## 3. System Architecture
+## 4. System Architecture
 
 The pipeline ensures all models share the same downstream processing for fair benchmarking.
 
@@ -54,7 +69,7 @@ graph TD
     G --> H[Lane Controller]
     H -->|Steer & Speed| A
 ```
-## 4. Supported Lane Segmentation Models
+## 5. Supported Lane Segmentation Models
 
 Model switching is handled purely via configuration.
 
@@ -65,7 +80,7 @@ Model switching is handled purely via configuration.
 | **TwinLiteNet** | Lightweight segmentation | Low computation, stable masks |
 | **BiSeNetV2** | Bilateral segmentation | Best speed–accuracy balance |
 
-## 5. Project Structure
+## 6. Project Structure
 
 ```text
 AI/
@@ -86,7 +101,7 @@ AI/
 └── main.py                # Entry point
 ```
 
-## 6. Installation
+## 7. Installation
 
 ### Prerequisites
 * **OS:** Windows / Linux
@@ -98,7 +113,7 @@ Run the following command in your terminal:
 ```bash
 pip install -r requirements.txt
 ```
-## 7. Configuration
+## 8. Configuration
 ### Network Settings
 LISTEN_IP   = "YOUR_PC_IP"   # IP of this computer (e.g., 192.168.1.5)
 LISTEN_PORT = 3000
@@ -112,13 +127,13 @@ LANE_MODEL  = "pidnet"
 
 ### Visualization
 SHOW        = True
-## 8. Dataset
+## 9. Dataset
 
 The dataset used for training and evaluation is not included in this repository.
 
 *  **Google Drive:** [🔗 CLICK HERE TO DOWNLOAD DATASET](https://drive.google.com/drive/u/0/folders/1fL22grqBu_YjszkUBqKqs98S_Nv2VUEi)
 
-## 9. Pretrained Model Weights
+## 10. Pretrained Model Weights
 
 Due to GitHub's file size limits (LFS), the pretrained model weights (files > 100MB) are **not included** in this repository. You must download them manually from Google Drive and place them into the `Lane_weight` folder.
 
@@ -152,7 +167,7 @@ AI/
     ├── lane_overlay.py
     └── lane_pipeline.py
 ```
-## 10. Running the System
+## 11. Running the System
 
 1.  **Power on** the AutoCar-Kit (ensure ESP32-S3 camera streaming is enabled).
 2.  **Connect** PC and ESP32 to the same local network.
@@ -163,9 +178,8 @@ python main.py
 
 ```
 
-## 11. Runtime Outputs
+## 12. Runtime Outputs
 
-### 11.1 Visualization Overlay
 The system displays a real-time overlay window containing key telemetry data:
 
 * **Lateral offset:** Deviation from the lane center (meters).
@@ -173,3 +187,15 @@ The system displays a real-time overlay window containing key telemetry data:
 * **Driving direction:** Current decision (Straight / Turn Left / Turn Right).
 * **FPS:** System processing speed (Frames Per Second).
 * **Selected lane reference points:** Visual debug points used for geometry estimation.
+
+## 13. Acknowledgement
+
+This project was developed as a graduation thesis for the **Bachelor of Artificial Intelligence** program at **FPT University**.
+
+We would like to express our sincere gratitude to:
+
+* **Mr. Khuat Duc Anh (AnhKD3):** Our mentor, for his dedicated guidance, technical insights, and continuous support throughout the development process.
+* **The "AutoCar-Kit" Team (Previous Cohort):** Specifically the authors of the [ACE_v2.3 repository](https://github.com/nohope-n3/ACE_v2.3.git), for open-sourcing their hardware platform and base firmware, which served as the foundation for this project.
+* **FPT University:** For providing the academic environment and laboratory resources necessary to complete this research.
+
+---
