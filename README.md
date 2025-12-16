@@ -37,10 +37,8 @@ This project is built upon the **AutoCar-Kit** hardware platform and the initial
 * **Original Project:** ACE_v2.3 (AutoCar-Kit)
 * **Original Repository:** [🔗 GitHub - nohope-n3/ACE_v2.3](https://github.com/nohope-n3/ACE_v2.3.git)
 
-While inheriting the **robust chassis design and motor control logic** from the original platform, the current team has **leveraged** this hardware as a testbed to **study and apply** advanced AI algorithms in a real-world setting. 
-
+The inherited components primarily include the **mechanical chassis**, **embedded motor control**, and the **ESP32 camera streaming concept**. the current team use this hardware as a testbed to **study and apply** advanced AI algorithms in a real-world setting. 
 Our work focuses on **bridging the gap** between Deep Learning and Embedded Systems by:
-
 * **Deploying** a high-throughput UDP pipeline to facilitate real-time AI inference.
 * **Integrating** state-of-the-art segmentation models (PIDNet, BiSeNet, Yolov8, TwinliteNet) directly into the control loop.
 * **Experimenting** with a **Multi-Ratio Lane Center Estimation** algorithm in Bird's-Eye View (BEV) to handle complex curve geometries.
