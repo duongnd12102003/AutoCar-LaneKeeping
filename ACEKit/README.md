@@ -1,12 +1,19 @@
 # AutoCar-Kit Firmware
 
 ## Source Code Origin
-This firmware is based on the open-source **AutoCar-Kit** project.
-* **Original Repository:** [🔗 https://github.com/nohope-n3/ACE_v2.3.git](https://github.com/nohope-n3/ACE_v2.3.git)
+
+This firmware is based on the open-source **AutoCar-Kit** project developed by a previous student cohort at FPT University.
+
+* **Original Repository:** [https://github.com/nohope-n3/ACE_v2.3.git](https://github.com/nohope-n3/ACE_v2.3.git)
+
+The original code provides the ESP32-S3 camera configuration, basic JPEG image capture, UDP image transmission, and motor control structure for the AutoCar-Kit platform.
 
 ## Modifications
-We have adapted this codebase to work with our **AI Lane Keeping System**:
-1.  **UDP Streaming:** Lightweight raw UDP streaming mechanism to reduce latency and support real-time deep learning inference on the host computer.
-2.  **Control Logic:** Updated command parsing to receive steering values from the Python backend.
 
-*Use this firmware with the ESP32-S3 hardware configuration defined in the original repository.*
+The current team adapted the firmware to support the AI-based lane keeping system in this project, with the following adjustments:
+
+* **Continuous Control:** Replaced discrete, rule-based motor commands with continuous steering values received from the Python-based control pipeline.
+* **Dynamics Tuning:** Added basic gain, limit, and trim handling to improve steering smoothness and stability.
+* **Real-time Optimization:** Kept the original FreeRTOS task structure while removing blocking delays to ensure real-time operation.
+
+These changes retain the original platform design while enabling tighter integration with the external AI processing system.
